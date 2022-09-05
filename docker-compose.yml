@@ -22,8 +22,8 @@ services:
     image: mongo-express
     restart: always
     environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: ${DB_USER}
-      ME_CONFIG_MONGODB_ADMINPASSWORD: ${DB_PASSWORD}
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${DB_DATA_USER}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${DB_DATA_PASSWORD}
       ME_CONFIG_MONGODB_URL: ${DB_MONGO_URL}
     ports:
       - ${PG_ADMIN_PORT}:8081
