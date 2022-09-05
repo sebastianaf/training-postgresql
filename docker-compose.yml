@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+training-postgresql-db:
+    container_name: training-postgresql-db
+    restart: always
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: ${DB_DATA_USER}
+      POSTGRES_PASSWORD: ${DB_DATA_PASSWORD}
+      POSTGRES_DB: ${DB_DATA_DATABASE}
+      TZ: ${TZ}
+    volumes:
+      - ./db-files:/var/lib/postgresql/data
+    ports:
+      - ${DB_DATA_PORT}:5432
+    networks:
+      - training-postgresql
+
+  training-postgresql-mongo-express:
+    container_name: training-postgresql-pgadmin
+    image: mongo-express
+    restart: always
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${DB_USER}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${DB_PASSWORD}
+      ME_CONFIG_MONGODB_URL: ${DB_MONGO_URL}
+    ports:
+      - ${PG_ADMIN_PORT}:8081
+    networks:
+      - training-postgresql
+
+networks:
+  training-postgresql:
+    name: training-postgresql
