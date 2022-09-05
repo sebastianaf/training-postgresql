@@ -1,0 +1,22 @@
+{
+  "name": "training-postgresql",
+  "version": "1.0.0",
+  "description": "Training code to run testing postgresql sever with pgadmin in NodeJS with Docker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebastianaf/training-postgresql.git"
+  },
+  "keywords": [
+    "postgresql"
+  ],
+  "author": "sebastianaf",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/sebastianaf/training-postgresql/issues"
+  },
+  "homepage": "https://github.com/sebastianaf/training-postgresql#readme"
+}
