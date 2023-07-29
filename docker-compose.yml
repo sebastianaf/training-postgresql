@@ -30,7 +30,13 @@ services:
       - ${PG_ADMIN_PORT}:80
     networks:
       - training-postgresql
+    volumes:
+      -  pgadmin:/var/lib/pgadmin
+    user: "root:root"
 
 networks:
   training-postgresql:
     name: training-postgresql
+
+volumes:
+  pgadmin:
