@@ -1,8 +1,8 @@
 version: '3.8'
 
 services:
-  org-postgresql-db:
-    container_name: org-postgresql-db
+  org-postgresql-db-01:
+    container_name: org-postgresql-db-01
     restart: always
     image: postgres:latest
     environment:
@@ -11,9 +11,25 @@ services:
       POSTGRES_DB: ${DB_NAME}
       TZ: ${TZ}
     volumes:
-      - ./org-postgresql-db:/var/lib/postgresql/data
+      - ./org-postgresql-db-01:/var/lib/postgresql/data
     ports:
       - ${DB_PORT}:5432
+    networks:
+      - org-postgresql
+  
+  org-postgresql-db-02:
+    container_name: org-postgresql-db-02
+    restart: always
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: ${DB2_USER}
+      POSTGRES_PASSWORD: ${DB2_PASSWORD}
+      POSTGRES_DB: ${DB2_NAME}
+      TZ: ${TZ}
+    volumes:
+      - ./org-postgresql-db-02:/var/lib/postgresql/data
+    ports:
+      - ${DB2_PORT}:5432
     networks:
       - org-postgresql
 
