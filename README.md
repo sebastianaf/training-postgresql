@@ -1,5 +1,5 @@
 # training-postgresql
- Training code to run testing postgresql sever with pgadmin in NodeJS with Docker
+ Dockercompose file to to run postgresql sever with pgadmin
 
 ## Requirements
  - Docker compose
