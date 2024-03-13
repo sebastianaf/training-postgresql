@@ -36,7 +36,7 @@ services:
   org-postgresql-pgadmin:
     container_name: org-postgresql-pgadmin
     restart: always
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:8.0
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PG_ADMIN_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PG_ADMIN_PASSWORD}
