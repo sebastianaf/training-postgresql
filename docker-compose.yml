@@ -9,7 +9,10 @@ services:
       POSTGRES_DB: ${DB_NAME}
       TZ: ${TZ}
     volumes:
-      - ./org-postgresql-db-01:/var/lib/postgresql/data
+      - type: tmpfs
+        target: /dev/shm
+        tmpfs:
+          size: 134217728 # 128*2^20 bytes = 128Mb
     ports:
       - ${DB_PORT}:5432
     networks:
@@ -25,7 +28,10 @@ services:
       POSTGRES_DB: ${DB2_NAME}
       TZ: ${TZ}
     volumes:
-      - ./org-postgresql-db-02:/var/lib/postgresql/data
+      - type: tmpfs
+        target: /dev/shm
+        tmpfs:
+          size: 134217728 # 128*2^20 bytes = 128Mb
     ports:
       - ${DB2_PORT}:5432
     networks:
