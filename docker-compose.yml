@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   org-postgresql-db-01:
     container_name: org-postgresql-db-01
